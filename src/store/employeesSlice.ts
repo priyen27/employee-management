@@ -40,14 +40,7 @@ export const addEmployee = createAsyncThunk(
     }
     const data = await response.json();
     return {
-      ...employee,
-      ...data,
-      firstName: employee.firstName || '',
-      lastName: employee.lastName || '',
-      email: employee.email || '',
-      department: employee.department || '',
-      position: employee.position || '',
-      hireDate: employee.hireDate || new Date().toISOString(),
+      ...data.employee
     };
   }
 );
@@ -67,15 +60,7 @@ export const updateEmployee = createAsyncThunk(
     }
     const data = await response.json();
     return {
-      ...employee,
-      ...data,
-      id,
-      firstName: employee.firstName || '',
-      lastName: employee.lastName || '',
-      email: employee.email || '',
-      department: employee.department || '',
-      position: employee.position || '',
-      hireDate: employee.hireDate || new Date().toISOString(),
+      ...data.employee
     };
   }
 );
